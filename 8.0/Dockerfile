@@ -63,6 +63,8 @@ VOLUME /var/lib/mysql
 # Config files
 COPY config/ /etc/mysql/
 COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint-initdb.d/ docker-entrypoint-initdb.d/
+
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 ENTRYPOINT ["docker-entrypoint.sh"]
 
